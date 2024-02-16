@@ -34,6 +34,7 @@ function renderResultPersons(personObj, personName) {
   const name = personObj[personName].name;
   const team = personObj[personName].team;
   const resultPersonEl = document.createElement("li");
+  resultPersonEl.id = name;
   resultPersonEl.innerHTML = `${name} (${team})`;
   resultPersonListEl.appendChild(resultPersonEl);
 
@@ -50,7 +51,7 @@ function addSelectPerson(event) {
   const fullInfo = event.target.innerHTML.replace(")", "");
   const name = fullInfo.split("(")[0].trim();
   const team = fullInfo.split("(")[1].trim();
-  resultPersonObj = {
+  const resultPersonObj = {
     [name]: {
       name,
       team,
@@ -71,12 +72,12 @@ function removeSelectPerson(event) {
   const fullInfo = event.target.innerHTML.replace(")", "");
   const name = fullInfo.split("(")[0].trim();
   const team = fullInfo.split("(")[1].trim();
+  resultPersonListEl.remove(document.getElementById(name));
   delete resultPersons[name];
 }
 
 /** 선택 참석자 렌더링 핸들러 */
 function renderPersonHandler(event) {
-  console.log(`참석자 선택 : ${event.target.innerHTML}`);
   addSelectPerson(event);
 }
 
