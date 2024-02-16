@@ -20,7 +20,7 @@ h2 {
 }
 
 .select-person-wrapper .select-person-list {
-  width: 50%;
+  width: 30%;
   font-size: 1rem;
   list-style: none;
   padding: 12px 6px;
@@ -48,6 +48,7 @@ h2 {
 }
 
 .result-person-wrapper {
+  display: block;
   padding: 0 8px;
   margin: 2rem auto;
   background-color: #ddd;
@@ -63,7 +64,7 @@ h2 {
   padding: 0;
 }
 #result-person-list li {
-  /* text-align: center; */
+  text-align: center;
   margin: 2px 6px;
   list-style: none;
   border: 1px solid #201658;
