@@ -27,9 +27,17 @@ li {
   display: flex;
   justify-content: center;
 }
+
+#reservation_wrapper {
+  border-right: 1px solid #d3d3d3;
+}
 #reservation_wrapper,
 #select_room {
-  margin: 1rem;
+  margin: 0 1rem;
+  padding: 0 1rem 1rem 0;
+}
+#result-person-list {
+  padding-left: 0px;
 }
 
 #reservation_buttons {

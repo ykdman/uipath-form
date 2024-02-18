@@ -10,14 +10,18 @@
     <main id="main">
       <section id="reservation_wrapper">
         <h3>회의 정보를 입력해주세요</h3>
-        <select name="person" id="select_person">
-          <option value="" disabled selected>참석자를 선택해주세요</option>
-          <option value="윤경덕">윤경덕</option>
-          <option value="이재원">이재원</option>
-          <option value="김지희">김지희</option>
-          <option value="권정연">권정연</option>
-          <option value="김권수">김권수</option>
-        </select>
+        <section id="select_person_wrapper">
+          <select name="person" id="select_person">
+            <option value="" disabled selected>참석자를 선택해주세요</option>
+            <option value="윤경덕">윤경덕</option>
+            <option value="이재원">이재원</option>
+            <option value="김지희">김지희</option>
+            <option value="권정연">권정연</option>
+            <option value="김권수">김권수</option>
+          </select>
+          <button id="add_person">추가</button>
+        </section>
+
         <section id="result_person_wrapper">
           <h4>선택된 참석자</h4>
           <ul id="result_person_list">
