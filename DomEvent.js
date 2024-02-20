@@ -76,6 +76,15 @@ function sendReservationInfo() {
   uiPathApi.sendMessage("reservation", JSON.stringify(message));
 }
 
+function addConferenceRoom() {
+  const conferenceRoomSelectEl = document.getElementById(
+    "conference_room_select"
+  );
+  const liEl = document.createElement("li");
+  liEl.innerHTML = `Test`;
+  conferenceRoomSelectEl.append(liEl);
+}
+
 /** 전체 Document Load */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Loaded");
@@ -86,6 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("select_person")
     .addEventListener("change", addPersonConference);
+
+  document
+    .getElementById("conference_room_select_hidden")
+    .addEventListener("input", () => {
+      console.log("바뀜 확인");
+    });
 
   // document
   //   .getElementById("add_person_btn")
