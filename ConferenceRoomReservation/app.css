@@ -9,13 +9,15 @@ body {
   display: flex;
   justify-content: center;
 }
-
+ul {
+  padding: 0;
+}
 li {
   list-style: none;
 }
 
 /* 참석자 선택 플레이스 홀더 */
-#select_person option[value=''][disabled] {
+#select_person option[value=""][disabled] {
   display: none;
 }
 
@@ -37,7 +39,8 @@ li {
   padding: 0 1rem 1rem 0;
 }
 #result-person-list {
-  padding-left: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 #reservation_buttons {
