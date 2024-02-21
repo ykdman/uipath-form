@@ -21,23 +21,21 @@ li {
 }
 
 #main {
-  border: 1px solid #d3d3d3;
-  width: 100%;
+  width: auto;
   height: 100%;
   margin: auto;
   display: flex;
-  flex-direction: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#reservation_wrapper {
+  border: 1px solid #ddd;
+}
+#reservation_wrapper section {
+  margin: 1rem;
 }
 
-#reservation_wrapper {
-  border-right: 1px solid #d3d3d3;
-}
-#reservation_wrapper,
-#select_room {
-  margin: 0 1rem;
-  padding: 0 1rem 1rem 0;
-}
 #result-person-list {
   margin: 0;
   padding: 0;
@@ -46,4 +44,31 @@ li {
 #reservation_buttons {
   display: flex;
   justify-content: end;
+}
+
+#select_room {
+  border: 1px solid #ddd;
+
+  margin-top: 2rem;
+}
+
+#conference_room_select {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+#conference_room_select .conference_list {
+  display: flex;
+}
+
+#room_select_btn.hidden {
+  display: none;
+}
+#room_select_btn {
+  display: block;
+}
+
+.conference_list {
+  margin: 12px 0;
 }

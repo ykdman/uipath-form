@@ -76,12 +76,36 @@ function sendReservationInfo() {
   uiPathApi.sendMessage("reservation", JSON.stringify(message));
 }
 
+function sendConferenceRoom() {
+  const room = document.querySelector(
+    "#conference_room_select .conference_list input:checked"
+  );
+  if (!room) {
+    return;
+  } else {
+    console.log(room.id);
+  }
+  // for (let i = 0; i < rooms.length; i++) {
+  //   selectRoom = rooms[i].querySelector("input:checked");
+  //   if (!selectRoom) {
+  //     console.log("FUck");
+  //   } else {
+  //     console.log(selectRoom.value);
+  //     return;
+  //   }
+  // }
+}
+
 /** 전체 Document Load */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Loaded");
   document
     .getElementById("reservation_confirm")
     .addEventListener("click", sendReservationInfo);
+
+  document
+    .getElementById("room_select_btn")
+    .addEventListener("click", sendConferenceRoom);
 
   document
     .getElementById("select_person")

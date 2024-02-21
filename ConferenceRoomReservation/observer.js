@@ -3,21 +3,29 @@ function addConferenceRoom() {
     "conference_room_select"
   );
   const selectRoomAside = document.getElementById("select_room");
-  const dummy = ["14-1", "14-2", "14-3"];
+  // const dummy = ["14-1", "14-2", "14-3"];
+  const dummy = document
+    .getElementById("dummy_value")
+    .innerHTML.split(",")
+    .map((m) => m.trim());
   dummy.forEach((dum) => {
     const radioEl = `
-		<input type="radio" name="room" value="${dum} id="${dum}"/>
+		<div class="conference_list">
+		<input type="radio" name="room" value="${dum}" id="${dum.trim()}"/>
 		<label for="${dum}">${dum}</label>
+		</div>
 		`;
 
     conferenceRoomSelectEl.innerHTML += radioEl;
   });
 
-  const confirmBtnEl = document.createElement("button");
-  confirmBtnEl.id = "room_select_btn";
-  confirmBtnEl.innerText = "확인";
+  document.getElementById("room_select_btn").classList.remove("hidden");
 
-  selectRoomAside.appendChild(confirmBtnEl);
+  // const confirmBtnEl = document.createElement("button");
+  // confirmBtnEl.id = "room_select_btn";
+  // confirmBtnEl.innerText = "확인";
+
+  // selectRoomAside.appendChild(confirmBtnEl);
 }
 
 let conferenceRoomtitleEl = document.getElementById("conference_select_title");
