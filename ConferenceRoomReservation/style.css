@@ -1,0 +1,47 @@
+#reservation_wrapper h3 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 61px;
+  top: 115px;
+}
+
+#conference_select_title {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 55px;
+  top: 725px;
+}
+
+#select_person {
+  border-radius: 0px;
+  width: 442px;
+  height: 40px;
+  position: absolute;
+  left: 61px;
+  top: 160px;
+  overflow: visible;
+}
+#select_person option[value=""][disabled] {
+  display: none;
+}
+
+#result_person_wrapper h4 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  left: 72px;
+  top: 219px;
+  width: 411px;
+  height: 20px;
+}

@@ -2,8 +2,17 @@
 * {
   box-sizing: border-box;
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter-Bold", sans-serif;
 }
+
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+/* Input CSS */
 #userinput_date::before {
   content: attr(data-placeholder);
 }
@@ -24,21 +33,24 @@ input[type="date"]:valid::before {
   display: none;
 }
 
-body {
-  justify-content: center;
+/* 참석자 선택 플레이스 홀더 */
+#select_person option[value=""][disabled] {
+  display: none;
 }
-ul {
-  padding: 0;
-}
-li {
-  list-style: none;
-}
+
+/* Button CSS */
 button {
   margin: 0.5rem 0.2rem;
+  text-align: center;
+  border-radius: 3px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
 }
 button.confirm {
   background-color: #005fff;
   color: #fff;
+  border: 1px solid #005fff;
 }
 button.confirm:hover {
   background-color: #1d24ca;
@@ -50,6 +62,7 @@ button.confirm:active {
 button.cancel {
   background-color: #c2c2c2;
   color: #fff;
+  border: 1px solid #c2c2c2;
 }
 
 button.cancel:hover {
@@ -68,11 +81,6 @@ button.delete_person {
   background-color: #fff;
 }
 
-/* 참석자 선택 플레이스 홀더 */
-#select_person option[value=""][disabled] {
-  display: none;
-}
-
 #main {
   width: auto;
   height: 100%;
@@ -87,6 +95,10 @@ button.delete_person {
 }
 #reservation_wrapper section {
   margin: 1rem;
+}
+
+#select_person {
+  border-radius: 5px;
 }
 
 #result-person-list {
