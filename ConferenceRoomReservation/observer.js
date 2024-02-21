@@ -3,11 +3,16 @@ function addConferenceRoom() {
     "conference_room_select"
   );
   const selectRoomAside = document.getElementById("select_room");
+
   // const dummy = ["14-1", "14-2", "14-3"];
   const dummy = document
     .getElementById("dummy_value")
     .innerHTML.split(",")
     .map((m) => m.trim());
+  if (dummy.length === 0) {
+    conferenceRoomtitleEl.innerHTML = "선택가능한 회의실이 없습니다.";
+    return;
+  }
   dummy.forEach((dum) => {
     const radioEl = `
 		<div class="conference_list">
@@ -19,7 +24,9 @@ function addConferenceRoom() {
     conferenceRoomSelectEl.innerHTML += radioEl;
   });
 
-  document.getElementById("room_select_btn").classList.remove("hidden");
+  const roomConfirmBtn = document.getElementById("room_select_btn");
+  roomConfirmBtn.classList.remove("hidden");
+  window.scrollTo({ top: roomConfirmBtn.offsetTop, behavior: "smooth" });
 
   // const confirmBtnEl = document.createElement("button");
   // confirmBtnEl.id = "room_select_btn";

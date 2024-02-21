@@ -4,6 +4,25 @@
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
+#userinput_date::before {
+  content: attr(data-placeholder);
+}
+input[type="radio"] {
+  accent-color: #1d24ca;
+}
+
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+input[type="radio"]:hover + label {
+  cursor: pointer;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  display: none;
+}
 
 body {
   justify-content: center;
@@ -13,6 +32,40 @@ ul {
 }
 li {
   list-style: none;
+}
+button {
+  margin: 0.5rem 0.2rem;
+}
+button.confirm {
+  background-color: #005fff;
+  color: #fff;
+}
+button.confirm:hover {
+  background-color: #1d24ca;
+}
+button.confirm:active {
+  color: #9ad0c2;
+}
+
+button.cancel {
+  background-color: #c2c2c2;
+  color: #fff;
+}
+
+button.cancel:hover {
+  background-color: #a3c9aa;
+}
+
+button.cancel:active {
+  color: #eeeeee;
+}
+
+button.delete_person {
+  border: 1px solid #c2c2c2;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #c2c2c2;
+  background-color: #fff;
 }
 
 /* 참석자 선택 플레이스 홀더 */
@@ -68,7 +121,10 @@ li {
 #room_select_btn {
   display: block;
 }
-
+#room_select_btn_wrap {
+  display: flex;
+  justify-content: end;
+}
 .conference_list {
   margin: 12px 0;
 }

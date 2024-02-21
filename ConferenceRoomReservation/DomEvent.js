@@ -21,8 +21,9 @@ function addPersonConference() {
     personEl.id = selectPersonName;
 
     personEl.innerHTML = `
+    <span style="color:#B4B4B8">●</span>
 		${selectPersonName}
-		<button class="delete_person">X</button>
+		<button class="delete_person">-</button>
 		`;
 
     // 삭제 리스너 추가
@@ -83,7 +84,7 @@ function sendConferenceRoom() {
   if (!room) {
     return;
   } else {
-    console.log(room.id);
+    uiPathApi.sendMessage("Room Select", room.id);
   }
   // for (let i = 0; i < rooms.length; i++) {
   //   selectRoom = rooms[i].querySelector("input:checked");

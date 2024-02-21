@@ -37,9 +37,9 @@
           <label for="date_option">날짜선택</label>
           <input
             type="date"
+            data-placeholder="날짜 선택"
             name="date_option"
             id="userinput_date"
-            pattern="\d{4}-\d{2}-\d{2}"
           />
         </section>
         <section id="time_option">
@@ -122,8 +122,8 @@
           />
         </section>
         <section id="reservation_buttons">
-          <button id="reservation_confirm">Confirm</button>
-          <button id="reservation_cancel">Cancel</button>
+          <button id="reservation_cancel" class="cancel">Cancel</button>
+          <button id="reservation_confirm" class="confirm">Confirm</button>
         </section>
 
         <!-- 회의실 선택 -->
@@ -131,7 +131,9 @@
           <p id="dummy_value" style="display: none"></p>
           <h3 id="conference_select_title">회의실을 찾는 중입니다.</h3>
           <ul id="conference_room_select"></ul>
-          <button id="room_select_btn" class="hidden">확인</button>
+          <div id="room_select_btn_wrap">
+            <button id="room_select_btn" class="hidden confirm">Confirm</button>
+          </div>
         </section>
       </section>
     </main>
