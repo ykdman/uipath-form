@@ -26,9 +26,8 @@ li {
   height: 100%;
   margin: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: flex;
   justify-content: center;
-  align-items: center;
 }
 
 #reservation_wrapper {
