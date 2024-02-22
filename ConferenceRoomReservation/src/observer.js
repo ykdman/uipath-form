@@ -24,9 +24,9 @@ function addConferenceRoom() {
     conferenceRoomSelectEl.innerHTML += radioEl;
   });
 
-  const roomConfirmBtn = document.getElementById("room_select_btn");
-  roomConfirmBtn.classList.remove("hidden");
-  window.scrollTo({ top: roomConfirmBtn.offsetTop, behavior: "smooth" });
+  const roomConfirmBtmWrapEl = document.getElementById("room_select_btn_wrap");
+  roomConfirmBtmWrapEl.classList.remove("hidden");
+  window.scrollTo({ top: roomConfirmBtmWrapEl.offsetTop, behavior: "smooth" });
 
   // const confirmBtnEl = document.createElement("button");
   // confirmBtnEl.id = "room_select_btn";

@@ -223,9 +223,14 @@ h3 {
   font-size: 1.5rem;
 }
 
-#room_select_btn.hidden {
+#room_select_btn_wrap.hidden {
   display: none;
 }
+
+#room_select_btn_wrap {
+  display: block;
+}
+
 #room_select_btn {
   display: block;
 }
