@@ -2,7 +2,8 @@
 * {
   box-sizing: border-box;
   font-size: 16px;
-  font-family: "Inter-Bold", sans-serif;
+  /* font-family: "Inter-Bold", sans-serif; */
+  font-family: Inter, "Source Sans Pro";
 }
 
 ul {
@@ -13,11 +14,12 @@ li {
 }
 
 /* Input CSS */
-#userinput_date::before {
-  content: attr(data-placeholder);
-}
+
 input[type="radio"] {
   accent-color: #1d24ca;
+  margin-right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 input[type="radio"]:hover {
@@ -28,28 +30,38 @@ input[type="radio"]:hover + label {
   cursor: pointer;
 }
 
-input[type="date"]:focus::before,
-input[type="date"]:valid::before {
+/* 플레이스 홀더 */
+#select_person option[value=""][disabled] {
+  display: none;
+}
+#userinput_starttime option[value=""][disabled],
+#userinput_endtime option[value=""][disabled] {
   display: none;
 }
 
-/* 참석자 선택 플레이스 홀더 */
-#select_person option[value=""][disabled] {
+#userinput_date::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+#userinput_date:focus::before,
+#userinput_date:valid::before {
   display: none;
 }
 
 /* Button CSS */
 button {
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   margin: 0.5rem 0.2rem;
   text-align: center;
   border-radius: 3px;
   width: 100px;
   height: 40px;
   cursor: pointer;
+  padding: 0;
 }
 button.confirm {
-  background-color: #005fff;
-  color: #fff;
+  color: #ffffff;
+  background-color: #00448d;
   border: 1px solid #005fff;
 }
 button.confirm:hover {
@@ -73,12 +85,60 @@ button.cancel:active {
   color: #eeeeee;
 }
 
-button.delete_person {
+/* button.delete_person {
+  box-shadow: none;
   border: 1px solid #c2c2c2;
   font-size: 1rem;
   font-weight: bold;
   color: #c2c2c2;
   background-color: #fff;
+  width: 1.6rem;
+  height: cacl(100% - 0.5rem);
+  font-weight: bold;
+} */
+button.delete_person {
+  margin: 0.1rem 0rem 0.3rem 0rem;
+  width: 1.6rem;
+  height: calc(100% - 0.4rem);
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #c2c2c2;
+  font-family: Inter, "Source Sans Pro";
+  white-space: nowrap;
+  border: solid 0.1rem #c2c2c2;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+}
+
+button.delete_person:hover {
+  background-color: #f6f5f5;
+  outline: none;
+  color: #c2c2c2;
+}
+
+button.delete_person:active {
+  background-color: #f6f5f5;
+  box-shadow: 0px 0px 3px #666;
+  outline: none;
+  color: #c2c2c2;
+}
+
+/* body design */
+.logo {
+  margin: auto;
+  width: 16.7rem;
+  height: 4.8rem;
+  position: relative;
+  /* left: 33.7rem; */
+
+  object-fit: cover;
+  /* vertical-align: top; */
 }
 
 #main {
@@ -90,11 +150,29 @@ button.delete_person {
   justify-content: flex-start;
   align-items: center;
 }
-#reservation_wrapper {
-  border: 1px solid #ddd;
+
+#main .logo_header {
+  padding-left: 10.5rem;
 }
+
+h1 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+.big_select {
+  width: 27.5rem;
+  height: 2.5rem;
+}
+.small_select {
+  width: 10.5rem;
+  height: 2.5rem;
+}
+
 #reservation_wrapper section {
-  margin: 1rem;
+  margin: 1.5rem 0;
 }
 
 #select_person {
@@ -105,16 +183,30 @@ button.delete_person {
   margin: 0;
   padding: 0;
 }
+#result-person-list li {
+  display: flex;
+
+  align-items: center;
+}
 
 #reservation_buttons {
   display: flex;
   justify-content: end;
 }
 
-#select_room {
-  border: 1px solid #ddd;
+#time_option {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  font-stretch: ultra-expanded;
+}
+#time_option span {
+  font-weight: bold;
+}
 
-  margin-top: 2rem;
+#select_room {
+  margin-top: 5rem;
 }
 
 #conference_room_select {
@@ -125,6 +217,10 @@ button.delete_person {
 }
 #conference_room_select .conference_list {
   display: flex;
+  align-items: center;
+}
+#conference_room_select .conference_list label {
+  font-size: 1.5rem;
 }
 
 #room_select_btn.hidden {
@@ -133,9 +229,18 @@ button.delete_person {
 #room_select_btn {
   display: block;
 }
+
+#room_select_btn_wrap img {
+  position: relative;
+  right: 1.8rem;
+  width: 12rem;
+  height: 40px;
+  margin: 0;
+}
 #room_select_btn_wrap {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
 }
 .conference_list {
   margin: 12px 0;

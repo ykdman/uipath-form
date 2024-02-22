@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
     <title>회의실 예약</title>
     <link rel="stylesheet" href="app.css" />
     <!-- <link rel="stylesheet" href="style.css" /> -->
-    <script src="uipathApi.js" defer></script>
-    <script src="app.js" defer></script>
-    <script src="DomEvent.js" defer></script>
-    <script src="observer.js" defer></script>
+    <script src="./src/uipathApi.js" defer></script>
+    <script src="./src/app.js" defer></script>
+    <script src="./src/DomEvent.js" defer></script>
+    <script src="./src/observer.js" defer></script>
   </head>
   <body>
     <main id="main">
       <section id="reservation_wrapper">
-        <h3>회의 정보를 입력해주세요</h3>
+        <section class="logo_header">
+          <img class="logo" src="./assets/image-16.png" />
+        </section>
+        <h1>회의 정보를 입력해주세요</h1>
         <section id="select_person_wrapper">
-          <select name="person" id="select_person">
+          <select name="person" id="select_person" class="big_select">
             <option value="" disabled selected>참석자를 선택해주세요</option>
             <option value="윤경덕">윤경덕</option>
             <option value="이재원">이재원</option>
@@ -32,17 +36,24 @@
           <ul id="result_person_list"></ul>
         </section>
         <section id="date_option">
-          <label for="date_option">날짜선택</label>
+          <!-- <label for="date_option">날짜선택</label> -->
           <input
             type="date"
             data-placeholder="날짜 선택"
             name="date_option"
             id="userinput_date"
+            class="small_select"
+            required
           />
         </section>
         <section id="time_option">
-          <label for="start_time">시작</label>
-          <select name="start_time" id="userinput_starttime">
+          <!-- <label for="start_time">시작</label> -->
+          <select
+            name="start_time"
+            id="userinput_starttime"
+            class="small_select"
+          >
+            <option value="" disabled selected>시작</option>
             <option value="08:00">08:00</option>
             <option value="08:30">08:30</option>
             <option value="09:00">09:00</option>
@@ -69,9 +80,10 @@
             <option value="19:30">19:30</option>
             <option value="20:00">20:00</option>
           </select>
-
-          <label for="end_time">종료</label>
-          <select name="end_time" id="userinput_endtime">
+          <span>~</span>
+          <!-- <label for="end_time">종료</label> -->
+          <select name="end_time" id="userinput_endtime" class="small_select">
+            <option value="" disabled selected>종료</option>
             <option value="08:00">08:00</option>
             <option value="08:30">08:30</option>
             <option value="09:00">09:00</option>
@@ -100,23 +112,25 @@
           </select>
         </section>
         <section id="title_option">
-          <label for="title_input">제목</label>
+          <!-- <label for="title_input">제목</label> -->
           <input
             type="text"
             name="title_input"
             id="userinput_title"
+            class="big_select"
             required
-            placeholder="회의 제목을 입력해주세요"
+            placeholder="제목"
           />
         </section>
         <section id="arenda_option">
-          <label for="agenda_input">안건</label>
+          <!-- <label for="agenda_input">안건</label> -->
           <input
             type="text"
             name="agenda_input"
             id="userinput_agenda"
+            class="big_select"
             required
-            placeholder="회의 안건을 입력해주세요"
+            placeholder="안건"
           />
         </section>
         <section id="reservation_buttons">
@@ -127,9 +141,10 @@
         <!-- 회의실 선택 -->
         <section id="select_room">
           <p id="dummy_value" style="display: none"></p>
-          <h3 id="conference_select_title">회의실을 찾는 중입니다.</h3>
+          <h3 id="conference_select_title">회의 정보 입력 전 입니다</h3>
           <ul id="conference_room_select"></ul>
           <div id="room_select_btn_wrap">
+            <img src="./assets/cocoa.png" alt="" class="cocoa_logo" />
             <button id="room_select_btn" class="hidden confirm">Confirm</button>
           </div>
         </section>

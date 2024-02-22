@@ -21,7 +21,7 @@ function addPersonConference() {
     personEl.id = selectPersonName;
 
     personEl.innerHTML = `
-    <span style="color:#B4B4B8">●</span>
+    <span style="color:#B4B4B8; text-align:center;">●</span>
 		${selectPersonName}
 		<button class="delete_person">-</button>
 		`;
