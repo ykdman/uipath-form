@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  /* font-family: "Inter-Bold", sans-serif; */
+  font-family: Inter, "Source Sans Pro";
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+#main {
+  width: auto;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#main section {
+  margin: 1rem 0;
+}
+
+#main .logo_header {
+  padding-left: 10.5rem;
+}
+.logo {
+  margin: auto;
+  width: 16.7rem;
+  height: 4.8rem;
+
+  /* left: 33.7rem; */
+
+  object-fit: cover;
+  /* vertical-align: top; */
+}
+
+#userinput_date::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+#userinput_date:focus::before,
+#userinput_date:valid::before {
+  display: none;
+}
+
+#button_wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}

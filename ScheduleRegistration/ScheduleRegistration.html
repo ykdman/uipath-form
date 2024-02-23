@@ -1,0 +1,60 @@
+﻿<!-- form
+{
+  "Metadata": {
+    "Id": "7ab89dba-f28d-4487-abef-44498cd827dd",
+    "Kind": "Html"
+  }
+}
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일정 등록</title>
+    <link rel="stylesheet" href="./src/common.css" />
+    <link rel="stylesheet" href="./src/app.css" />
+    <script src="./src/uipathApi.js" defer></script>
+    <script src="./src/app.js" defer></script>
+    <script src="./src/DOMEvent.js" defer></script>
+  </head>
+  <body>
+    <main id="main">
+      <section id="registration_wrapper">
+        <section class="logo_header">
+          <img src="./assets/HAE.png" alt="" class="logo" />
+        </section>
+        <h3>일정 정보를 입력해 주세요</h3>
+        <section id="section_mailtitle">
+          <input
+            type="text"
+            id="userinput_mailtitle"
+            placeholder="메일 제목 추가"
+            class="big"
+          />
+        </section>
+        <section id="section_date">
+          <input
+            type="date"
+            required
+            data-placeholder="날짜 선택"
+            id="userinput_date"
+            class="small"
+          />
+        </section>
+        <section id="section_mailbody">
+          <input
+            type="text"
+            id="userinput_mailbody"
+            placeholder="메일 내용 추가"
+            class="big"
+          />
+        </section>
+        <section id="button_wrapper">
+          <button id="schedul_cancel_btn" class="cancel">Cancel</button>
+          <button id="schedul_confirm_btn" class="confirm">Confirm</button>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
