@@ -45,6 +45,11 @@ h3 {
   display: none;
 }
 
+#userinput_mailbody {
+  width: 27.5rem;
+  height: 12rem;
+}
+
 #button_wrapper {
   display: flex;
   justify-content: end;
