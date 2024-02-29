@@ -9,7 +9,8 @@ function addConferenceRoom() {
     .getElementById("dummy_value")
     .innerHTML.split(",")
     .map((m) => m.trim());
-  if (dummy.length === 0) {
+  if (dummy.length === 1 && !dummy[0]) {
+    console.log("선택 가능한 회의실이 없습니다.");
     conferenceRoomtitleEl.innerHTML = "선택가능한 회의실이 없습니다.";
     return;
   }

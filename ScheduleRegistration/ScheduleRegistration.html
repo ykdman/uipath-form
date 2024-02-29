@@ -7,7 +7,7 @@
 }
 -->
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,7 @@
         <section class="logo_header">
           <img src="./assets/HAE.png" alt="" class="logo" />
         </section>
-        <h3>일정 정보를 입력해 주세요</h3>
+        <h1>일정 정보를 입력해 주세요</h1>
         <section id="section_mailtitle">
           <input
             type="text"
@@ -34,12 +34,15 @@
           />
         </section>
         <section id="section_date">
+          <label for="userinput_date" style="display: none">날짜 입력</label>
           <input
+            name="userinput_date"
             type="date"
             required
             data-placeholder="날짜 선택"
             id="userinput_date"
-            class="small"
+            class=""
+            aria-required="true"
           />
         </section>
         <section id="section_mailbody">
@@ -48,12 +51,6 @@
             id="userinput_mailbody"
             placeholder="메일 내용 추가"
           ></textarea>
-          <!-- <input
-            type="text"
-            id="userinput_mailbody"
-            placeholder="메일 내용 추가"
-            class="big"
-          /> -->
         </section>
         <section id="button_wrapper">
           <button id="schedul_cancel_btn" class="cancel">Cancel</button>

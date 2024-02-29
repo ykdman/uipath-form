@@ -39,8 +39,9 @@ input[type="radio"]:hover + label {
   display: none;
 }
 
-#userinput_date::before {
+#userinput_date:before {
   content: attr(data-placeholder);
+  display: inline-block;
   width: 100%;
 }
 #userinput_date:focus::before,
