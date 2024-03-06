@@ -49,6 +49,11 @@ function sendReservationInfo() {
   const agenda = document.getElementById("userinput_agenda").value;
   const reserveDate = document.getElementById("userinput_date").value;
 
+  const roomSelectWrapEl = document.getElementById("conference_room_select");
+  for (const child of roomSelectWrapEl.children) {
+    roomSelectWrapEl.remove(child);
+  }
+
   // 입력 정보 미부합 시, 미수행
   if (
     resultListEl.children.length === 0 ||
@@ -138,6 +143,7 @@ function sendConferenceRoom() {
 /** 전체 Document Load */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Loaded");
+  renderTime();
   document
     .getElementById("reservation_confirm")
     .addEventListener("click", sendReservationInfo);
