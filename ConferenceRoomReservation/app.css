@@ -245,7 +245,7 @@ h3 {
 }
 #room_select_btn_wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 .conference_list {

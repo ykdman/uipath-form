@@ -2,7 +2,7 @@ function addConferenceRoom() {
   const conferenceRoomSelectEl = document.getElementById(
     "conference_room_select"
   );
-  conferenceRoomSelectEl.textContent = "";
+  conferenceRoomSelectEl.innerHTML = ``;
 
   const selectRoomAside = document.getElementById("select_room");
 
