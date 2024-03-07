@@ -163,11 +163,34 @@ function sendConferenceRoom() {
   // }
 }
 
+/** */
+function renderInputDate(e) {
+  console.log(e.target.value);
+  // user 지정 날짜
+  const userDate = e.target.value;
+  // 수행 기준 날짜 할당
+  const todayDate = new Date();
+  const todayStr = `${todayDate.getFullYear()}-${
+    todayDate.getMonth() + 1 < 10
+      ? "0" + (todayDate.getMonth() + 1)
+      : todayDate.getMonth()
+  }-${
+    todayDate.getDate() < 10 ? "0" + todayDate.getDate() : todayDate.getDate()
+  }`;
+
+  console.log(todayStr + "오늘 날짜");
+  if (todayStr !== userDate) {
+    timeOptionRender(timeObj);
+  } else {
+    todayTimeOptionHandler();
+  }
+}
+
 /** 전체 Document Load */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Loaded");
   setTimeout(() => renderAtandee(), 500);
-  renderTime();
+  todayTimeOptionHandler();
   document
     .getElementById("reservation_confirm")
     .addEventListener("click", sendReservationInfo);
@@ -184,6 +207,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("reservation_cancel")
     .addEventListener("click", () => {
       uiPathApi.sendMessage("Form Close");
+    });
+
+  document
+    .getElementById("userinput_date")
+    .addEventListener("change", function (e) {
+      renderInputDate(e);
     });
 });
 

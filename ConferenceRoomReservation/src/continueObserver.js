@@ -1,13 +1,13 @@
 const continueEl = document.getElementById("continue_value");
 const continueObserver = new MutationObserver((mutation) => {
-  alert("test");
+  console.log(mutation[0].target.innerText);
 });
 
-let option = {
+let continueElObserveOption = {
   target: true,
   attributes: true,
   childList: true,
   characterData: true,
 };
 
-continueObserver.observe(continueEl, option);
+continueObserver.observe(continueEl, continueElObserveOption);

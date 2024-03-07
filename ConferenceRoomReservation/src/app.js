@@ -122,9 +122,10 @@ const timeObj = [
   },
 ];
 
-function renderTime() {
-  const userInputStartTimeEl = document.getElementById("userinput_starttime");
-  const userInputEndTimeEl = document.getElementById("userinput_endtime");
+function todayTimeOptionHandler() {
+  /**TODO : 날짜가 오늘일떄는 지금 시간에 따라 선택가능한 시간 변경
+   * 오늘이 아닌 (최소 내일) 일 때, 시간은 상관 없이 렌더링
+   */
   const currentDate = new Date();
   const currentHour = String(currentDate.getHours());
   const currentMinutes =
@@ -140,7 +141,32 @@ function renderTime() {
   });
 
   // render
-  // start Time Select Append
+  timeOptionRender(timeRange);
+}
+
+function timeOptionRender(timeRange) {
+  const userInputStartTimeEl = document.getElementById("userinput_starttime");
+  const userInputEndTimeEl = document.getElementById("userinput_endtime");
+  const startTimePlaceHolderEl = document.createElement("option");
+  const endTimePlaceHolderEl = document.createElement("option");
+  // init options
+  startTimePlaceHolderEl.value = "";
+  startTimePlaceHolderEl.disabled = true;
+  startTimePlaceHolderEl.selected = true;
+  startTimePlaceHolderEl.textContent = "시작";
+
+  endTimePlaceHolderEl.value = "";
+  endTimePlaceHolderEl.disabled = true;
+  endTimePlaceHolderEl.selected = true;
+  endTimePlaceHolderEl.textContent = "종료";
+
+  userInputStartTimeEl.textContent = "";
+  userInputStartTimeEl.append(startTimePlaceHolderEl);
+
+  userInputEndTimeEl.textContent = "";
+  userInputEndTimeEl.append(endTimePlaceHolderEl);
+  // startTimePlaceHolderEl.classList
+
   timeRange.forEach((time) => {
     const optionEl = document.createElement("option");
     optionEl.value = `${time.hour}:${time.minute}`;
