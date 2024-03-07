@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중요 업무 알림</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./src/app.css" />
+    <!-- script -->
+    <script src="./src/uipathApi.js" defer></script>
+    <script src="./src/app.js" defer></script>
+    <script src="./src/DomEvent.js" defer></script>
+  </head>
+  <body>
+    <main id="main">
+      <section id="alert_wrapper">
+        <section class="logo_header">
+          <img src="./assets/HAE.png" alt="" class="logo" />
+        </section>
+        <section id="alert_header">
+          <h2>중요 업무 알림 입니다.</h2>
+        </section>
+        <section id="alert_description">
+          <h4>업무 내용을 불러오고 있는 중 입니다.</h4>
+        </section>
+        <section id="task_wrapper">
+          <ul id="task_list"></ul>
+        </section>
+      </section>
+
+      <p id="json_value" style="display: none"></p>
+    </main>
+  </body>
+</html>

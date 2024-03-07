@@ -1,15 +1,38 @@
+function renderAtandee() {
+  const attandee = document.getElementById("person_list");
+  const selectPersonWrapEl = document.getElementById("select_person");
+  const renderPerson = JSON.parse(attandee.innerHTML);
+
+  for (const [name, number] of Object.entries(renderPerson)) {
+    const opEl = document.createElement("option");
+    opEl.value = number;
+    opEl.className = name;
+    opEl.innerText = name;
+    selectPersonWrapEl.appendChild(opEl);
+  }
+}
+
 function addPersonConference() {
+  const attandee = document.getElementById("person_list");
+  const persons = JSON.parse(attandee.innerHTML);
+
   let isDuplicate = false;
   const resultListEl = document.getElementById("result_person_list");
-  const selectPersonName = document.getElementById("select_person").value;
+  const selectPersonId = document.getElementById("select_person").value;
+  let personName;
+  for (const [name, number] of Object.entries(persons)) {
+    if (number === selectPersonId) {
+      personName = name;
+    }
+  }
 
-  if (!selectPersonName) {
+  if (!selectPersonId) {
     return;
   }
 
   // 중복 검사
   for (const el of resultListEl.children) {
-    if (el.id === selectPersonName) {
+    if (el.id === selectPersonId) {
       isDuplicate = true;
       console.log("중복");
       break;
@@ -18,11 +41,11 @@ function addPersonConference() {
 
   if (!isDuplicate) {
     const personEl = document.createElement("li");
-    personEl.id = selectPersonName;
+    personEl.id = selectPersonId;
 
     personEl.innerHTML = `
     <span style="color:#B4B4B8; text-align:center;">●</span>
-		${selectPersonName}
+		${personName}
 		<button class="delete_person">-</button>
 		`;
 
@@ -30,7 +53,7 @@ function addPersonConference() {
     personEl.querySelector(".delete_person").onclick = () => {
       let removeEl;
       for (const person of resultListEl.children) {
-        if (person.id === selectPersonName) {
+        if (person.id === selectPersonId) {
           resultListEl.removeChild(person);
         }
       }
@@ -115,7 +138,7 @@ function sendConferenceRoom() {
     // 참석 인원 추가
     const persons = [];
     for (const person of resultListEl.children) {
-      persons.push(person.id);
+      persons.push(String(person.id));
     }
     const message = {
       persons: [...persons],
@@ -143,6 +166,7 @@ function sendConferenceRoom() {
 /** 전체 Document Load */
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Loaded");
+  setTimeout(() => renderAtandee(), 500);
   renderTime();
   document
     .getElementById("reservation_confirm")
@@ -156,7 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("select_person")
     .addEventListener("change", addPersonConference);
 
-  // document
-  //   .getElementById("add_person_btn")
-  //   .addEventListener("click", addPersonConference);
+  document
+    .getElementById("reservation_cancel")
+    .addEventListener("click", () => {
+      uiPathApi.sendMessage("Form Close");
+    });
 });
+
+// document
+//   .getElementById("add_person_btn")
+//   .addEventListener("click", addPersonConference);

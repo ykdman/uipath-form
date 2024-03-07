@@ -7,6 +7,7 @@ function updateCurrentDate() {
     String(currentDate.getMonth() + 1).length === 1
       ? "0" + String(currentDate.getMonth() + 1)
       : currentDate.getMonth() + 1;
+
   const day =
     String(currentDate.getDate()).length === 1
       ? "0" + String(currentDate.getDate())
@@ -137,7 +138,6 @@ function renderTime() {
     const conTime = +(time.hour + time.minute);
     return conTime >= currentTime;
   });
-  console.table(timeRange);
 
   // render
   // start Time Select Append

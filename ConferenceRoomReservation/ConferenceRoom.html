@@ -6,11 +6,12 @@
     <meta name="theme-color" content="#000000" />
     <title>회의실 예약</title>
     <link rel="stylesheet" href="app.css" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+
     <script src="./src/uipathApi.js" defer></script>
     <script src="./src/app.js" defer></script>
     <script src="./src/DomEvent.js" defer></script>
     <script src="./src/observer.js" defer></script>
+    <script src="./src/continueObserver.js" defer></script>
   </head>
   <body>
     <p id="ex" style="display: none"></p>
@@ -23,11 +24,6 @@
         <section id="select_person_wrapper">
           <select name="person" id="select_person" class="big_select">
             <option value="" disabled selected>참석자를 선택해주세요</option>
-            <option value="윤경덕">윤경덕</option>
-            <option value="이재원">이재원</option>
-            <option value="김지희">김지희</option>
-            <option value="권정연">권정연</option>
-            <option value="김권수">김권수</option>
           </select>
           <!-- <button id="add_person_btn">추가</button> -->
         </section>
@@ -55,61 +51,11 @@
             class="small_select"
           >
             <option value="" disabled selected>시작</option>
-            <!-- <option value="08:00">08:00</option>
-            <option value="08:30">08:30</option>
-            <option value="09:00">09:00</option>
-            <option value="09:30">09:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
-            <option value="13:00">13:00</option>
-            <option value="13:30">13:30</option>
-            <option value="14:00">14:00</option>
-            <option value="14:30">14:30</option>
-            <option value="15:00">15:00</option>
-            <option value="15:30">15:30</option>
-            <option value="16:00">16:00</option>
-            <option value="16:30">16:30</option>
-            <option value="17:00">17:00</option>
-            <option value="17:30">17:30</option>
-            <option value="18:00">18:00</option>
-            <option value="18:30">18:30</option>
-            <option value="19:00">19:00</option>
-            <option value="19:30">19:30</option>
-            <option value="20:00">20:00</option> -->
           </select>
           <span>~</span>
           <!-- <label for="end_time">종료</label> -->
           <select name="end_time" id="userinput_endtime" class="small_select">
             <option value="" disabled selected>종료</option>
-            <!-- <option value="08:00">08:00</option>
-            <option value="08:30">08:30</option>
-            <option value="09:00">09:00</option>
-            <option value="09:30">09:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
-            <option value="13:00">13:00</option>
-            <option value="13:30">13:30</option>
-            <option value="14:00">14:00</option>
-            <option value="14:30">14:30</option>
-            <option value="15:00">15:00</option>
-            <option value="15:30">15:30</option>
-            <option value="16:00">16:00</option>
-            <option value="16:30">16:30</option>
-            <option value="17:00">17:00</option>
-            <option value="17:30">17:30</option>
-            <option value="18:00">18:00</option>
-            <option value="18:30">18:30</option>
-            <option value="19:00">19:00</option>
-            <option value="19:30">19:30</option>
-            <option value="20:00">20:00</option> -->
           </select>
         </section>
         <section id="title_option">
@@ -142,6 +88,8 @@
         <!-- 회의실 선택 -->
         <section id="select_room">
           <p id="dummy_value" style="display: none"></p>
+          <span id="person_list" style="display: none"></span>
+          <span id="continue_value" style="display: none"></span>
           <h3 id="conference_select_title">회의 정보 입력 전 입니다</h3>
           <ul id="conference_room_select"></ul>
           <div id="room_select_btn_wrap" class="hidden">
